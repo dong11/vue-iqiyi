@@ -11,8 +11,8 @@
             <input
               class="search-input"
               placeholder="王牌对王牌第5季2020"
-              @focus="onShowSearchList(true)"
-              @blur="onShowSearchList(false)"
+              @focus="showSearchResult = true"
+              @blur="showSearchResult = false"
             />
             <a class="search-hot">
               <i class="qy-svgicon qy-svgicon-rank-hot2"></i>
@@ -28,12 +28,12 @@
         </div>
         <!-- 搜索列表框 -->
         <div v-show="showSearchResult" class="search-result">
-          <div class="search-result-con" @mouseenter="onMouseInBox(true)" @mouseleave="onMouseInBox(false)">
+          <div class="search-result-con" >
             <!-- 历史搜索记录 -->
             <div v-if="searchHistroyList.length > 0" class="search-result-history">
               <div class="search-result-title">
                 历史搜索
-                <span class="search-result-clear" @click="clearSearchHistory()">
+                <span class="search-result-clear" @mousedown="clearSearchHistory()">
                   <i class="qy-svgicon qy-svgicon-trashcan"></i>
                   清除记录
                 </span>
@@ -72,7 +72,7 @@ export default {
   data () {
     return {
       showSearchResult: false,
-      mouseInBox: false, // 鼠标是否在搜索列表框内，用于判断是否可隐藏搜索列表
+      test: 0,
       searchHistroyList: ['王牌对王牌'],
       searchHotList: [
         '青春有你',
@@ -88,15 +88,10 @@ export default {
     }
   },
   methods: {
-    onShowSearchList (show) {
-      !this.mouseInBox && (this.showSearchResult = show)
-    },
-    onMouseInBox (inBox) {
-      console.log('====onMouseInBox====', inBox)
-      this.mouseInBox = inBox
+    onShowSearchList () {
+      this.showSearchResult = !this.showSearchResult
     },
     clearSearchHistory () {
-      console.log('===clearSearchHistory===')
       this.searchHistroyList = []
     }
   }
