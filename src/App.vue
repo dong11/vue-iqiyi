@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <i-header></i-header>
+    <i-banner></i-banner>
   </div>
 </template>
 
 <script>
 import IHeader from '@/components/IHeader'
+import IBanner from '@/components/IBanner'
 
 export default {
   name: 'App',
   components: {
-    'i-header': IHeader
+    'i-header': IHeader,
+    'i-banner': IBanner
   }
 }
 </script>

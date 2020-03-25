@@ -5,6 +5,11 @@ import App from './App'
 import router from './router'
 
 import '@/icons' // icon
+import 'view-design/dist/styles/iview.css'
+import { Carousel, CarouselItem } from 'view-design'
+
+Vue.component('i-carousel', Carousel)
+Vue.component('i-carousel-item', CarouselItem)
 
 Vue.config.productionTip = false
 

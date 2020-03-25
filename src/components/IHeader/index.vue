@@ -108,10 +108,17 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+* {
+  // 解决与 iview.css 冲突
+  box-sizing: content-box;
+}
+
 .i-header {
+  position: relative;
   width: 100%;
   height: 64px;
   background-color: #232325;
+  z-index: 999;
 
   .header-inner {
     width: 100%;
