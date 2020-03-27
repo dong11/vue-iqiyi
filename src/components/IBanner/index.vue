@@ -1,5 +1,9 @@
 <template>
-  <div class="qy-banner" @mouseover="settings.autoplay = false" @mouseout="settings.autoplay = true">
+  <div
+    class="qy-banner"
+    @mouseover="settings.autoplay = false"
+    @mouseout="settings.autoplay = true"
+  >
     <!-- 滚动 banner 图 -->
     <i-carousel
       v-model="selectIndex"
@@ -16,37 +20,38 @@
     </i-carousel>
     <!-- 左侧 banner 菜单 -->
     <ul class="side-panel">
-      <li v-for="(item, index) in bannerList" :key="item.image_url" :class="['side-item', {'selected': index === selectIndex}]" @mouseover="selectIndex = index">
+      <li
+        v-for="(item, index) in bannerList"
+        :key="item.image_url"
+        :class="['side-item', {'selected': index === selectIndex}]"
+        @mouseover="selectIndex = index"
+      >
         <span class="side-text side-title">{{item.title}}</span>
-        <span class="side-text side-colon">: </span>
+        <span class="side-text side-colon">:</span>
         <span class="side-text">{{item.desc}}</span>
       </li>
     </ul>
     <!-- 底部菜单 -->
     <div class="qy-nav-panel">
-      <div class="nav-item">
-        <div class="nav-list">
-          <div class="nav-list-item">
-            <span class="nav-list-item-text">娱乐</span>
-          </div>
-          <div class="nav-list-item">
-            <span class="nav-list-item-text">娱乐</span>
-          </div>
-          <div class="nav-list-item">
-            <span class="nav-list-item-text">娱乐</span>
+      <!-- 左边菜单 -->
+      <div class="nav-item nav-item-01">
+        <div v-for="(navItem, index) in navList1" :key="index" class="nav-list">
+          <div v-for="item in navItem" :key="item" class="nav-list-item">
+            <span class="nav-list-item-text">{{item}}</span>
           </div>
         </div>
-        <div class="nav-list">
-          <div class="nav-list-item">
-            <span class="nav-list-item-text">娱乐</span>
-          </div>
-          <div class="nav-list-item">
-            <span class="nav-list-item-text">娱乐</span>
-          </div>
-          <div class="nav-list-item">
-            <span class="nav-list-item-text">娱乐</span>
+      </div>
+      <!-- 中间菜单 -->
+      <div class="nav-item nav-item-02">
+        <div v-for="(navItem, index) in navList2" :key="index" class="nav-list">
+          <div v-for="item in navItem" :key="item" class="nav-list-item">
+            <span class="nav-list-item-text">{{item}}</span>
           </div>
         </div>
+      </div>
+      <div class="nav-item-vip">
+        <i class="nav-item-vip-img"></i>
+        <span class="nav-item-vip-txt">会员精选</span>
       </div>
     </div>
   </div>
@@ -68,59 +73,86 @@ export default {
         {
           title: '民国奇探',
           desc: '胡一天张云龙探奇案',
-          image_url: 'https://pic3.iqiyipic.com/common/lego/20200324/0c57b6e13a4d4e2b921dfc0ef2d9ace0.jpg'
+          image_url:
+            'https://pic3.iqiyipic.com/common/lego/20200324/0c57b6e13a4d4e2b921dfc0ef2d9ace0.jpg'
         },
         {
           title: '鬓边',
           desc: '黄晓明尹正因戏结缘',
-          image_url: 'https://pic0.iqiyipic.com/common/lego/20200324/40c176c84a0c4ad2953c9179d2a7b431.jpg'
+          image_url:
+            'https://pic0.iqiyipic.com/common/lego/20200324/40c176c84a0c4ad2953c9179d2a7b431.jpg'
         },
         {
           title: '无心法师3',
           desc: '青鸾无心毁契约',
-          image_url: 'https://pic1.iqiyipic.com/common/lego/20200324/3066fc4f074340d6a2f5272fcbfc4006.jpg'
+          image_url:
+            'https://pic1.iqiyipic.com/common/lego/20200324/3066fc4f074340d6a2f5272fcbfc4006.jpg'
         },
         {
           title: '猎心者',
           desc: '李佳航帮张伟实现梦想',
-          image_url: 'https://pic1.iqiyipic.com/common/lego/20200323/2be535fc3e08424ab6b1b4640e2b543d.jpg'
+          image_url:
+            'https://pic1.iqiyipic.com/common/lego/20200323/2be535fc3e08424ab6b1b4640e2b543d.jpg'
         },
         {
           title: '青春有你',
           desc: 'SNH大战AKB',
-          image_url: 'https://pic2.iqiyipic.com/common/lego/20200322/b93e261f8ff043b0b1b257cbd6fcfb3d.jpg'
+          image_url:
+            'https://pic2.iqiyipic.com/common/lego/20200322/b93e261f8ff043b0b1b257cbd6fcfb3d.jpg'
         },
         {
           title: '王牌',
           desc: '华晨宇谢广坤跨界合作',
-          image_url: 'https://pic2.iqiyipic.com/common/lego/20200321/12a39bb8d34647e786d9b3bdd5fc0439.jpg'
+          image_url:
+            'https://pic2.iqiyipic.com/common/lego/20200321/12a39bb8d34647e786d9b3bdd5fc0439.jpg'
         },
         {
           title: '如果岁月',
           desc: '靳东蒋欣重启爱情',
-          image_url: 'https://pic3.iqiyipic.com/common/lego/20200320/eb9f315067a14fac92ed871a2b74cf40.jpg'
+          image_url:
+            'https://pic3.iqiyipic.com/common/lego/20200320/eb9f315067a14fac92ed871a2b74cf40.jpg'
         },
         {
           title: '金刀秘卫',
           desc: '孙耀威化身锦衣卫',
-          image_url: 'https://pic2.iqiyipic.com/common/lego/20200325/6feedf00a4454fde98c7a4e59c882c46.jpg'
+          image_url:
+            'https://pic2.iqiyipic.com/common/lego/20200325/6feedf00a4454fde98c7a4e59c882c46.jpg'
         },
         {
           title: '街舞时代',
           desc: '街舞圈生存突围战',
-          image_url: 'https://pic1.iqiyipic.com/common/lego/20200325/5c9cf074774745e5900e4bf8b99193d5.jpg'
+          image_url:
+            'https://pic1.iqiyipic.com/common/lego/20200325/5c9cf074774745e5900e4bf8b99193d5.jpg'
         },
         {
           title: '快进者',
           desc: '救护车版速度与激情',
-          image_url: 'https://pic2.iqiyipic.com/common/lego/20200324/e2b4b7061b954b9b8e837791bec3acf1.jpg'
+          image_url:
+            'https://pic2.iqiyipic.com/common/lego/20200324/e2b4b7061b954b9b8e837791bec3acf1.jpg'
         }
       ],
-      selectIndex: 0
+      selectIndex: 0,
+      navList1: [
+        ['娱乐', '体育', '资讯'],
+        ['电影', '片花', '网络电影'],
+        ['电视剧', '综艺', '脱口秀'],
+        ['动漫', '儿童', '教育'],
+        ['生活', '母婴', '健康'],
+        ['音乐', '时尚', '旅游'],
+        ['搞笑', '原创', '军事'],
+        ['财经', '科技', '汽车'],
+        ['知识', '公益', '纪录片']
+      ],
+      navList2: [
+        ['热点', '风云榜', '全网影视'],
+        ['奇秀直播', '直播中心', '应用商店'],
+        ['商城', '游戏', '游戏中心'],
+        ['大头', '爱奇艺号', 'VR'],
+        ['文学', '漫画', '泡泡广场']
+      ]
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
@@ -144,7 +176,7 @@ export default {
     top: 0;
     right: 87px;
     width: 276px;
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 9px 0 7px;
 
     .side-item {
@@ -174,7 +206,11 @@ export default {
         line-height: normal;
         margin-top: -1px;
         margin-bottom: 0px;
-        background-image: linear-gradient(90deg, rgba(0, 0, 0, .5), transparent);
+        background-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.5),
+          transparent
+        );
 
         .side-title {
           display: block;
@@ -199,7 +235,7 @@ export default {
     height: 98px;
     padding: 10px 87px;
     padding-bottom: 13px;
-    background-color: rgba(27,27,28,.96);
+    background-color: rgba(27, 27, 28, 0.96);
 
     .nav-item {
       height: 100%;
@@ -208,7 +244,13 @@ export default {
       display: inline-block;
       vertical-align: top;
       letter-spacing: 0;
-      background: url('https://www.iqiyipic.com/common/fix/site-v4/nav-item-1335Bg-180425.png') no-repeat 100% 0;
+      background: url("https://www.iqiyipic.com/common/fix/site-v4/nav-item-1335Bg-180425.png")
+        no-repeat 100% 0;
+
+      &.nav-item-02,
+      &.nav-item-vip {
+        padding-left: 31px;
+      }
 
       .nav-list {
         display: inline-block;
@@ -227,6 +269,33 @@ export default {
             }
           }
         }
+      }
+    }
+
+    .nav-item-vip {
+      padding-left: 31px;
+      display: inline-block;
+      text-align: center;
+      letter-spacing: 0;
+      vertical-align: top;
+      cursor: pointer;
+
+      .nav-item-vip-img {
+        display: inline-block;
+        width: 34px;
+        height: 28px;
+        background: url("https://www.iqiyipic.com/common/fix/site-v4/nav-item-vipNormal@2x.png")
+          no-repeat;
+        background-size: 100% 100%;
+        margin-top: 11px;
+      }
+
+      .nav-item-vip-txt {
+        display: block;
+        margin-top: 6px;
+        line-height: 18px;
+        font-size: 14px;
+        color: #e2bc81;
       }
     }
   }
