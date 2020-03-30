@@ -2,18 +2,24 @@
   <div id="app">
     <i-header></i-header>
     <i-banner></i-banner>
+    <i-content></i-content>
+    <i-footer></i-footer>
   </div>
 </template>
 
 <script>
 import IHeader from '@/components/IHeader'
 import IBanner from '@/components/IBanner'
+import IContent from '@/components/IContent'
+import IFooter from '@/components/IFooter'
 
 export default {
   name: 'App',
   components: {
     'i-header': IHeader,
-    'i-banner': IBanner
+    'i-banner': IBanner,
+    'i-content': IContent,
+    'i-footer': IFooter
   }
 }
 </script>
@@ -53,10 +59,21 @@ export default {
     content: "\E867"
 }
 
+.qy-mod-icon {
+  width: 28px;
+  height: 28px;
+  background: url('https://www.iqiyipic.com/common/fix/site-v4/sprite-channelTitle-icons@2x-0422.png') no-repeat 50%;
+  background-size: 400px 120px;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.no-link {
+  cursor: default;
 }
 </style>

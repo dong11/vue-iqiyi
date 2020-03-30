@@ -161,6 +161,7 @@ export default {
   position: relative;
   width: 100%;
   height: 520px;
+  margin-bottom: 30px;
 
   .img-banner {
     width: 100vw;
